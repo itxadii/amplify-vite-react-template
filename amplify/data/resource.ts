@@ -10,8 +10,7 @@ const schema = a.schema({
   Todo: a
     .model({
       content: a.string(),
-    })
-    .authorization(allow => [allow.owner()]),
+    }).authorization(allow => [allow.owner()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
@@ -19,10 +18,10 @@ export type Schema = ClientSchema<typeof schema>;
 export const data = defineData({
   schema,
   authorizationModes: {
+    defaultAuthorizationMode: 'userPool',
     apiKeyAuthorizationMode: {
       expiresInDays: 30,
     },
-    defaultAuthorizationMode: 'userPool',
   },
 });
 
@@ -36,13 +35,13 @@ Actions or Pages Router? Review how to generate Data clients for those use
 cases: https://docs.amplify.aws/gen2/build-a-backend/data/connect-to-API/
 =========================================================================*/
 
-/*
-"use client"
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
 
-const client = generateClient<Schema>() // use this Data client for CRUDL requests
-*/
+// "use client"
+// import { generateClient } from "aws-amplify/data";
+// import type { Schema } from "@/amplify/data/resource";
+
+// const client = generateClient<Schema>() // use this Data client for CRUDL requests
+
 
 /*== STEP 3 ===============================================================
 Fetch records from the database and use them in your frontend component.
